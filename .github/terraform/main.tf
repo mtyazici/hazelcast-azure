@@ -85,9 +85,7 @@ resource "azurerm_network_interface" "nic" {
   name                = "${var.prefix}_nic_${count.index}"
   location            = var.location
   resource_group_name = azurerm_resource_group.rg.name
-  tags = {
-    "${var.azure_tag_key}" = var.azure_tag_value
-  }
+
   ip_configuration {
     name                          = "${var.prefix}_nicconfig_${count.index}"
     subnet_id                     = azurerm_subnet.subnet.id
